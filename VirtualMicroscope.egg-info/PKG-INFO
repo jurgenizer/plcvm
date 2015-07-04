@@ -1,0 +1,15 @@
+Metadata-Version: 1.0
+Name: VirtualMicroscope
+Version: 0.1.dev0
+Summary: UNKNOWN
+Home-page: UNKNOWN
+Author: UNKNOWN
+Author-email: UNKNOWN
+License: The MIT License (MIT)
+Description: # Virtual Microscope
+        
+        [VirtualMicroscope](https://github.com/evildmp/VirtualMicroscope) is a Python/Django application to view, navigate and annotate very high-resolution images.
+        
+        Read the docs here: [http://virtualmicroscope.readthedocs.org/](http://virtualmicroscope.readthedocs.org/).
+        
+Platform: UNKNOWN

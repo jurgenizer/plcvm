@@ -1,0 +1,66 @@
+ #selectable .ui-selecting { background: #FECA40; }
+ 
+#selectable .ui-selected { background: #F39814; color: white; }
+
+#selectable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+
+#selectable li { margin: 3px; padding: 0.4em; font-size: 1.4em; height: 18px; }
+
+/* hide input */
+input.addable:empty {
+	margin-left: -999px;
+}
+
+/* style label */
+input.addable:empty ~ label {
+	position: relative;
+	float: right;
+	line-height: 2.5em;
+	text-indent: 3.25em;
+	margin-top: 2em;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+input.addable:empty ~ label:before {
+	position: absolute;
+	display: block;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	content: '';
+	width: 2.5em;
+	background: #D1D3D4;
+	border-radius: 3px 0 0 3px;
+}
+
+/* toggle hover */
+input.addable:hover:not(:checked) ~ label:before {
+	content:'\2714';
+	text-indent: .9em;
+	color: #C2C2C2;
+}
+
+input.addable:hover:not(:checked) ~ label {
+	color: #888;
+}
+
+/* toggle on */
+input.addable:checked ~ label:before {
+	content:'\2714';
+	text-indent: .9em;
+	color: #9CE2AE;
+	background-color: #4DCB6D;
+}
+
+input.addable:checked ~ label {
+	color: #777;
+}
+
+/* radio focus */
+input.addable:focus ~ label:before {
+	box-shadow: 0 0 0 3px #999;
+}
