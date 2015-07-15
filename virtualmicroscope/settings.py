@@ -11,6 +11,20 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+ENV_PATH = os.path.abspath(os.path.dirname(__file__))
+MEDIA_ROOT = os.path.join(ENV_PATH, 'media/')
+
+# jurgens cahde thumbnails
+#CACHED_THUMBNAILS
+
+#OPTIONAL SETTINGS FOR VIRTUAL MICROSCOPE
+COMPRESS_ENABLED=True #override and force compressor even on dev server
+COMM_MARKER_EXPIRE = 180 #number of days untila a community marker expires
+SLIDES_PER_PAGE = 100 #number of thumbnails per page
+API_KEY = 'AIzaSyC5LTL7bLDmV-xTj56f1dfSshqKc01R3bw' #google maps API key (optional)
+
+
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -93,6 +107,10 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 URL_ROOT = '/virtualmicroscope'
+
+
+
+
 
 # Django Suit configuration example
 SUIT_CONFIG = {

@@ -10,7 +10,7 @@ import urllib
 CACHED_THUMBNAILS=getattr(settings, 'CACHED_THUMBNAILS', False)
 
 #core metadata options for collectionslide - customize these for your local faculty
-SCANLEVELLIST = ((5, 5), (10, 10), (20, 20), (40, 40), (100, 100), (120, 120))
+SCANLEVELLIST = (('5', '5'), ('10', '10'), ('20', '20'), ('40', '40'), ('100', '100'), ('120', '120'))
 STAINLIST=(('AFB', 'AFB'), ('Alcian Blue', 'Alcian Blue'), ('Bielschowsky Silver Stain', 'Bielschowsky Silver Stain'), ('Cajal', 'Cajal'), ('Diff-Quik', 'Diff-Quik'), ('Elastic Fiber Stain', 'Elastic Fiber Stain'), ('EVG', 'EVG'), ('Fontana Masson', 'Fontana Masson'), ('Foot-Hortegas silver technique', 'Foot-Hortegas silver technique'), ('Gallocyanin', 'Gallocyanin'), ('Giemsa', 'Giemsa'), ('GMS', 'GMS'), ('Golgis Silver Method', 'Golgis Silver Method'), ('Gomoris silver technique', 'Gomoris silver technique'), ('Gram Stain', 'Gram Stain'), ('H and E', 'H and E'), ('Helly fixation', 'Helly fixation'), ('Immunohistochemical Stain ', 'Immunohistochemical Stain '), ('Iron Hematoxylin', 'Iron Hematoxylin'), ('Iron Stain', 'Iron Stain'), ('Jones Silver Stain', 'Jones Silver Stain'), ('Mallorys PTAH', 'Mallorys PTAH'), ('Mallorys trichrome', 'Mallorys trichrome'), ('Masson Trichrome', 'Masson Trichrome'), ('Mucicarmine', 'Mucicarmine'), ('Myeloperoxidase', 'Myeloperoxidase'), ('Osmic acid', 'Osmic acid'), ('Papanicolau', 'Papanicolau'), ('PAS', 'PAS'), ('PAS+D', 'PAS+D'), ('Reticulin Stain', 'Reticulin Stain'), ('Rhodamine/Copper Stain', 'Rhodamine/Copper Stain'), ('Romanes silver technique', 'Romanes silver technique'), ('Romanovsky-type', 'Romanovsky-type'), ('Silver technique', 'Silver technique'), ('Steiner Stain', 'Steiner Stain'), ('Trypan Blue Vital Stain', 'Trypan Blue Vital Stain'), ('Von Kossa', 'Von Kossa'))
 TISSUESOURCELIST = (('Cat', 'Cat'), ('Cow', 'Cow'), ('Dog', 'Dog'), ('Guinea Pig', 'Guinea Pig'), ('Human', 'Human'), ('Mammal', 'Mammal'), ('Monkey', 'Monkey'), ('Mouse', 'Mouse'), ('Pig', 'Pig'), ('Rabbit', 'Rabbit'), ('Rat', 'Rat'))
 DEVELOPMENTALSTAGELIST = (('Fetal', 'Fetal'), ('Pre-pubescent', 'Pre-pubescent'), ('Adult', 'Adult'), ('Senescent', 'Senescent'))
@@ -23,7 +23,7 @@ def get_upload_path(instance, filename):
 class Slide(models.Model):
 	url = models.URLField( verbose_name="URL to slide directory", max_length=500)
 	label = models.CharField( verbose_name="Label", max_length=500)
-	institution = models.CharField(  verbose_name="Source Institution", default ="UCT", max_length=500,blank=True, null=True)
+	institution = models.CharField( verbose_name="Source Institution", default ="UCT", max_length=500,blank=True, null=True)
 	scanlevel = models.CharField( verbose_name="Magnification at which slide was scanned", max_length=500,blank=True, null=True,choices=SCANLEVELLIST)
 	maxzoomlevel = models.IntegerField( verbose_name="Maximum Google Zoom Level")
 	viewcount = models.IntegerField(blank=True, null=True)
@@ -41,11 +41,13 @@ class Slide(models.Model):
 		if hasattr(settings, 'CACHED_THUMBNAILS'):
 			if CACHED_THUMBNAILS:
 				if self.url and not self.thumbnail:
-					result = urllib.urlretrieve(self.url+"/tile_0_0_0.jpg")
-					self.thumbnail.save(os.path.basename(str(self.id)+".jpg"),File(open(result[0])))
+					#result = urllib.urlretrieve(self.url+"/tile_0_0_0.jpg")
+					result = urllib.urlretrieve(self.url+"/0/0/0.jpg")
+					self.thumbnail.save(os.path.basename(str(self.id)+ ".jpg"),File(open(result[0])))
 					self.save()
 				return	self.thumbnail.url
-		return	self.url+"/tile_0_0_0.jpg"
+		#return	self.url+"/tile_0_0_0.jpg"
+		return	self.url+"/0/0/0.jpg"
 
 class Collection(models.Model):
 	label = models.CharField(max_length=500,blank=True, null=True)

@@ -46,4 +46,5 @@ urlpatterns = patterns('',
 
 		#home page
 		(r'^$', MainPage),
+
 	)
