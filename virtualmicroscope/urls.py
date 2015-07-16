@@ -8,4 +8,5 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^virtualmicroscope/', include('plcvm.urls')),
+    url(r'', include('plcvm.urls')),
 )
