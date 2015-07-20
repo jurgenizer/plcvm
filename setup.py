@@ -15,3 +15,8 @@ setup(
     long_description = open('README.md').read(),
     install_requires = REQUIREMENTS
 )
+
+
+/ > home > jurgenizer > plcvm > virtualmicroscope > static >  placenta_update_day_2014cd
+
+cat case4.zip.001 case4.zip.002 case4.zip.003 case4.zip.004 > case4.zip
