@@ -21,7 +21,7 @@ MEDIA_ROOT = os.path.join(ENV_PATH, 'media/')
 COMPRESS_ENABLED=True #override and force compressor even on dev server
 COMM_MARKER_EXPIRE = 180 #number of days untila a community marker expires
 SLIDES_PER_PAGE = 100 #number of thumbnails per page
-API_KEY = 'AIzaSyC5LTL7bLDmV-xTj56f1dfSshqKc01R3bw' #google maps API key (optional)
+API_KEY = '' #google maps API key (optional)
 
 
 
@@ -31,7 +31,7 @@ API_KEY = 'AIzaSyC5LTL7bLDmV-xTj56f1dfSshqKc01R3bw' #google maps API key (option
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '!g%+c*h*(s8z*3k!fu_zgofr0*h4v__4fuoau^crdl1@04m&yb'
+SECRET_KEY = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
